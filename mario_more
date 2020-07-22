@@ -1,0 +1,29 @@
+from cs50 import get_int
+
+n = get_int("Height:  ")
+while n <= 0 or n > 8:
+    n = get_int("Height:  ")
+
+
+for i in range(n):
+        print(" " * (n - 1 - i), end="") 
+        print("#" * (i + 1), end="")
+        print(" " * 2, end="")
+        print("#" * (i + 1), end="")
+        print(end="\n")
+
+'''
+    n = 4  
+
+    i = 0, blankspaces = 3, hashes = 1
+    i = 1, blankspaces = 2, hashes = 2
+    i = 2, blankspaces = 1, hashes = 3
+    i = 3, blankspaces = 0, hashes = 4
+    
+    
+       #  #   
+      ##  ##  
+     ###  ### 
+    ####  ####
+
+'''
