@@ -1,0 +1,33 @@
+from cs50 import get_string
+import re
+
+text = get_string("Text:  ")
+
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+alpha_list = list(alphabet.lower())
+word_count = 0
+letters = (len([letter for letter in text.lower() if letter in alpha_list]))
+
+# Calculate words
+for word in text.split():
+    word_count+= 1
+
+# Calculate sentences
+sentence_count = len(re.split(r'[\.!?] ',text))
+
+#print(text.count(' ') + text.count('abcdefg') + text.count('.') + text.count('?'))
+# print(f"Letters:  {letters}")
+# print(f"Words:  {word_count}")
+# print(f"Sentences:  {sentence_count}")
+
+L = ((float(letters) / float(word_count)) * 100);
+S = ((float(sentence_count) / float(word_count)) * 100);
+
+# Calc index based on formula
+index = round((0.0588 * L) - (0.296 * S) - 15.8)
+if index < 0:
+    print("Before Grade 1")
+elif index > 16:
+    print("Grade 16+")
+else:
+    print(f"Grade:  {index}")
